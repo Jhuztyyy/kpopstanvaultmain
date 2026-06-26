@@ -1,6 +1,6 @@
-# Kpop Stan Vault Main
+# Kpop Stan Vault
 
-**Kpop Stan Vault Main** is a private personal K-pop vault project for organizing groups, members, bias tiers, affinity, statistics, discography, upcoming events, snapshots, and vault backups in one clean dashboard.
+**Kpop Stan Vault** is a private personal K-pop vault project for organizing groups, members, bias tiers, affinity, statistics, discography, upcoming events, snapshots, and vault backups in one clean dashboard.
 
 The project focuses on a polished One UI-inspired interface, stable data preservation, smooth popups, reliable stats history, and safe sync behavior.
 
