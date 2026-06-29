@@ -8,6 +8,9 @@ Tracking links:
 
 - [Issue #21 - Autocorrect Members and Group in AI mode](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/21)
 - [Issue #22 - AI gathers wrong information](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/22)
+- [Issue #23 - Cloud Sync Improvements](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/23)
+- [Issue #24 - Installable app support](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/24)
+- [Issue #25 - Pre-debut handling in notifications board](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/25)
 - [Repository](https://github.com/Jhuztyyy/kpopstanvaultmain)
 - [Releases](https://github.com/Jhuztyyy/kpopstanvaultmain/releases)
 
@@ -17,7 +20,6 @@ Tracking links:
 - Added AI member schema fields for official `name` and `stageName`.
 - Added support for extracting member data from KProfiles group profile pages when individual member pages do not exist.
 - Added direct source URL propagation into AI review suggestions.
-- Added private-code-safe README and changelog documentation.
 - Added installable app support through the Next.js app manifest and a no-cache service worker.
 - Added pre-debut notification handling so future debut dates show as debuting events instead of anniversaries.
 
@@ -28,8 +30,8 @@ Tracking links:
 - Improved member matching so safe casing/spelling/stylization corrections can be reviewed instead of blocked.
 - Improved newer/niche group support where KProfiles stores all members inside one group profile page.
 - Improved AI prompts so official member names come from profile headers/member rows.
-- Improved issue-linked release documentation for GitHub tracking.
 - Improved cloud sync conflict protection so stale device saves reconcile with newer cloud rows before upload.
+- Improved cloud sync safety so a device delays upload instead of overwriting another device when the latest cloud row cannot be compared.
 
 ### Fixed
 
@@ -40,22 +42,6 @@ Tracking links:
 - Fixed wrong-info risk for birthdays, roles, height, weight, blood type, MBTI, and nationality by keeping uncertain fields empty.
 - Fixed notification board labeling for pre-debut groups with future debut dates.
 - Fixed stale-device cloud pushes that could revert newer profile/member info after an affinity-only edit.
-
-### Protected
-
-- Existing saved fields still require review before being changed.
-- Stats history was not touched.
-- Tier history was not touched.
-- Affinity history was not touched.
-- Manual bias order was not touched.
-- Route changes were limited to profile-source accuracy and matching.
-- Existing stats/tier/affinity history was preserved.
-
-### Validation
-
-- Production build passed with `npm.cmd run build`.
-- Verified KProfiles direct lookup for a member listed on a group profile page.
-- Verified source-backed member-name correction path using the local API route.
 
 ## V1.0-260628
 
