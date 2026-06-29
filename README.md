@@ -116,7 +116,7 @@ Kpop Stan Vault is an actively improved personal vault project with ongoing focu
 
 ## Sourcing
 
-K-pop Members and Group infomation are sourced from KProfiles.com. 
+K-pop Members and Group infomation are sourced from [KProfiles](https://kprofiles.com)
 
 ## Tech Stack
 
