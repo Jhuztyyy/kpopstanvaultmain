@@ -2,6 +2,49 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
+
+## V1.4-260701
+
+Tracking links:
+
+- [Issue #6 - Add overall member familiarity on group cards](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/6)
+- [Issue #31 - Improve AI recognition for group and member info](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/31)
+- [Repository](https://github.com/Jhuztyyy/kpopstanvaultmain)
+- [Releases](https://github.com/Jhuztyyy/kpopstanvaultmain/releases)
+
+### Added
+
+- Added compact member familiarity summaries on home group cards using saved member familiarity values.
+- Added group-card familiarity tooltips showing the average percentage and mastered-member count.
+- Added updated Quick Tour guidance for AI Fill review, source-backed group/member matching, member Familiarity, discography filters, personal release ratings, Date Dashboard, Recent Changes, Cloud Sync, and app install support.
+
+### Improved
+
+- Improved the home group-card familiarity meter width so it lines up with the logo/content lane and affinity area instead of stretching across the whole card.
+- Improved the home group-card familiarity placement so it stays near the release pill lane without crowding the affinity percentage or footer controls.
+- Improved Discography type filters so Mini Album, EP, and Album releases use separate buckets and no longer inflate each other's counts.
+- Improved release type badges so saved album-title fields display as Mini Album, EP, Single, or Album based on the actual release category.
+- Improved member-list readability so long member names and tier labels wrap cleanly instead of cutting off with ellipses.
+- Improved AI Fill review readability so long reviewed field values and source labels wrap instead of truncating.
+- Improved Quick Tour search text so help topics are easier to find by Familiarity, discography rating, AI mode, backup, sync, PWA, and safety keywords.
+- Improved KProfiles group-page parsing so member sections that are stored as headings/rows inside one group profile page can be recognized.
+- Improved AI profile lookup for newer or niche groups where members do not have separate individual KProfiles pages.
+- Improved group-page member merging so active lineup names from a verified group profile page are not missed when only some detailed member blocks are available.
+- Improved direct KProfiles matching for popular/stylized group names such as BTS and IZ*ONE.
+- Improved group entertainment detection from profile intro text such as "under MODHAUS" when no explicit agency field is present.
+- Improved active/former/hiatus member-status parsing so former text must belong to the target group/member section before it can change a saved status.
+
+### Fixed
+
+- Fixed source-backed member lookup failing when the member exists inside the group profile page but not as a separate profile page.
+- Fixed home group cards not showing the overall familiarity progress for their saved members.
+- Fixed large KProfiles pages leaking sidebar/navigation names into group member counts.
+- Fixed tripleS parsing returning too many members; the verified lineup now resolves to 24 current members.
+- Fixed fact bullets being mistaken for member names on group profile pages.
+- Fixed debut-date extraction using unrelated anniversary/reveal dates instead of a real debut sentence.
+- Fixed active/former member-list names being clipped in compact two-column member cards.
+
+
 ## V1.3-260629
 
 Tracking links:
