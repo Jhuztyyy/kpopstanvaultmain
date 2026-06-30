@@ -107,3 +107,29 @@ Tracking links:
 - Fixed KProfiles group-page member fallback suggesting generic descriptions such as `KProfiles lists Newy as a member of Keyveatz.`
 - Fixed Recent Changes clearing too quickly without a warning.
 - Fixed media crop previews losing rounded corners inside the edit photo popup.
+
+
+## V1.0-260628
+
+### Added
+
+- Added app version display in Settings -> About.
+- Added GitHub repository and GitHub Releases links in Settings -> About.
+- Added manual personal rating per discography/release item.
+- Added Date Dashboard month grouping for birthdays and debuts.
+
+### Improved
+
+- Improved Settings -> About layout, spacing, and rounded-corner consistency.
+- Improved Date Dashboard scroll behavior.
+- Improved discography rating UI, save responsiveness, and toast behavior.
+- Improved cover photo button readability.
+- Improved Open Discography tooltip placement.
+
+### Fixed
+
+- Fixed Group Affinity Stats line-splitting so old chart history is not repainted using only the current tier.
+- Fixed broken GitHub icon import by replacing it with a local inline GitHub mark.
+- Fixed Turbopack compile panic caused by decorative Unicode comment lines.
+- Removed the debut-month member/detail list from Date Dashboard.
+- Removed the "Saved" text from the personal rating UI.
