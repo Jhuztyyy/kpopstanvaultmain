@@ -2,7 +2,6 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
-
 ## V1.4-260701
 
 Tracking links:
@@ -44,7 +43,6 @@ Tracking links:
 - Fixed debut-date extraction using unrelated anniversary/reveal dates instead of a real debut sentence.
 - Fixed active/former member-list names being clipped in compact two-column member cards.
 
-
 ## V1.3-260629
 
 Tracking links:
@@ -54,6 +52,10 @@ Tracking links:
 - [Issue #23 - Cloud Sync Improvements](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/23)
 - [Issue #24 - Installable app support](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/24)
 - [Issue #25 - Pre-debut handling in notifications board](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/25)
+- [Issue #27 - Vault Doctor UI messed up in Mobile UI](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/27)
+- [Issue #28 - Add overall personal rating in the discography tracker](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/28)
+- [Issue #29 - Add delete confirmation popup on recent changes](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/29)
+- [Issue #30 - Edit modal popup picture preview rounded corners](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/30)
 - [Repository](https://github.com/Jhuztyyy/kpopstanvaultmain)
 - [Releases](https://github.com/Jhuztyyy/kpopstanvaultmain/releases)
 
@@ -67,6 +69,8 @@ Tracking links:
 - Added installable app support through the Next.js app manifest, app icons, and service worker registration.
 - Added app logo/icon metadata for browser install surfaces.
 - Added pre-debut notification handling so future debut dates show as debuting events instead of anniversaries.
+- Added an overall personal rating summary in the Discography modal based on saved release ratings.
+- Added a confirmation warning before clearing the Recent Changes action log.
 
 ### Improved
 
@@ -84,6 +88,8 @@ Tracking links:
 - Improved AI member-description review so generic source membership sentences do not replace richer saved member notes.
 - Improved browser install compatibility with explicit manifest id, app icons, and maskable icon metadata.
 - Improved pre-debut date handling across notification filters, notification rows, calendar grouping, and event opening.
+- Improved Vault Doctor mobile readability with larger small text, safer wrapping, and stacked narrow grids.
+- Improved edit-photo crop preview corner consistency while panning or zooming images.
 
 ### Fixed
 
@@ -99,3 +105,5 @@ Tracking links:
 - Fixed cloud push fallback behavior so failed conflict preflight keeps edits local instead of pushing stale data.
 - Fixed synced local state after cloud upload so conflict-reconciled rows and uploaded image URLs stay aligned on the current device.
 - Fixed KProfiles group-page member fallback suggesting generic descriptions such as `KProfiles lists Newy as a member of Keyveatz.`
+- Fixed Recent Changes clearing too quickly without a warning.
+- Fixed media crop previews losing rounded corners inside the edit photo popup.
