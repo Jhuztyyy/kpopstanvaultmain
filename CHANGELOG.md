@@ -34,11 +34,16 @@ V1.4 focuses on source-backed AI recognition for group profile pages, clearer ho
 - Improved group-page member merging so verified lineup names are kept when detailed member sections are partial.
 - Improved direct profile matching for stylized/common names such as BTS and IZ*ONE.
 - Improved entertainment/agency extraction from KProfiles intro text when no separate agency field is present.
+- Improved short group-name matching so names like IVE must match exact profile tokens instead of being detected inside unrelated names.
+- Improved entertainment/label extraction so member facts and stage-name meanings cannot be saved as the group agency.
+- Improved disbanded-group detection for KProfiles pages that clearly say the target group officially disbanded or is now unofficially disbanded, plus exact-name fallback checks against KProfiles disbanded group lists while avoiding member-history false positives.
 - Improved active/former/hiatus member status accuracy by requiring member-section or target-group evidence.
 
 ## Fixed
 
 - Fixed source-backed AI lookup missing members that are present inside their group profile page.
+- Fixed IVE-style short-name lookups being able to open the wrong KProfiles page.
+- Fixed Weeekly-style profile pages parsing member fact text as the group company.
 - Fixed group cards missing overall member familiarity progress.
 - Fixed tripleS returning too many members; the verified KProfiles lineup now resolves to 24 current members.
 - Fixed sidebar/navigation text leaking into profile member counts.
