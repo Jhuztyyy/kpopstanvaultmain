@@ -2,6 +2,39 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
+# Kpop Stan Vault V1.6-260703
+
+V1.6 focuses on AI progress feedback, mobile responsiveness polish, cloud-sync login clarity, and cleaner review surfaces.
+
+## Tracking Links
+
+- [Issue #33 - Mobile site UI laggy on some devices](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/33)
+- [Issue #34 - Cloud sync log in experience](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/34)
+- [Issue #35 - AI mode progress bar, percentage](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/35)
+
+## Added
+
+- Added an AI progress toast for source-backed AI review with a progress bar and percentage.
+- Added scan-progress text inside the Discography scan control while release checks are running.
+- Added member familiarity bulk editing in the Bulk Edit Workspace.
+
+## Improved
+
+- Improved AI progress estimates with phase-capped progress for source lookup, review parsing, and ready-to-review states.
+- Improved AI review readability on desktop and mobile, including long saved values, suggested values, source chips, and review summary cards.
+- Improved mobile responsiveness on constrained Android/iOS browser layouts while keeping the same desktop-style visual language.
+- Improved Cloud Sync login/status wording so the sign-in experience is cleaner and less cluttered.
+- Improved toast stack behavior, special toast visuals, and AI progress feedback so they share the same notification placement and motion style.
+- Improved Bulk Edit Workspace usability for member-facing fields without changing affinity, tier, rank, or manual order.
+
+## Fixed
+
+- Fixed mobile AI review cards splitting or truncating important review text.
+- Fixed AI progress feedback feeling disconnected from normal toast notifications.
+- Fixed Discography scan progress appearing in the wrong place during active scans.
+- Fixed mobile-only lag from heavier visual/rendering paths on some devices.
+
+
 # Kpop Stan Vault V1.4-260701
 
 V1.4 focuses on source-backed AI recognition for group profile pages, clearer home-card Familiarity, better discography categorization, and updated in-app guidance.
