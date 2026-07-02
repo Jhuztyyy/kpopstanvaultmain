@@ -114,10 +114,6 @@ The project source, setup process, database structure, and private configuration
 
 Kpop Stan Vault is an actively improved personal vault project with ongoing focus on performance, mobile polish, snapshot stability, statistics reliability, sync safety, UI consistency, discography accuracy, AI review quality, and data preservation.
 
-## Sourcing
-
-K-pop Members and Group infomation are sourced from [KProfiles](https://kprofiles.com)
-
 ## Tech Stack
 
 - Next.js
@@ -126,9 +122,15 @@ K-pop Members and Group infomation are sourced from [KProfiles](https://kprofile
 - Vercel
 - Google Gemini API
 - Apple Music / iTunes release data
-- KProfiles profile sources
+- KProfiles and KPopping profile sources
 - Lucide icons
 - Custom One UI-inspired CSS
+
+## Acknowledgements
+
+Special thanks to [KProfiles.com](https://kprofiles.com/) for being a helpful public K-pop profile reference for group and member information.
+
+Kpop Stan Vault is an independent personal vault project and is not affiliated with KProfiles.
 
 ## License
 
