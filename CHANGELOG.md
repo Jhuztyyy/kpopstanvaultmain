@@ -2,6 +2,61 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
+# Kpop Stan Vault V2.0-260709
+
+V2.0-260709 focuses on Discography 2.0, Spotify Integration, Spotify read-only listening context, trusted profile source links, unified Sync & Backup, and updated in-app guidance.
+
+## Tracking Links
+
+- [Issue #36 - Spotify listening trends as a later/beta feature](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/36)
+- [Issue #37 - Discography 2.0 with release details, tracks, pictures, and rating display](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/37)
+- [Issue #38 - KProfiles source link per group, placed cleanly inside Group Info](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/38)
+- [Issue #39 - JSON sync fallback for mobile/no cloud sync](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/39)
+
+## Added
+
+- Added Spotify read-only listening context for saved groups.
+- Added Home Top Music with matched top tracks and derived top albums across linked groups.
+- Added Spotify Top Music search for tracks, albums, groups, artists, and saved album-track text.
+- Added Spotify range controls for LM, 4W, 6M, and ALL, with clearer labels for recent-play and top-item windows.
+- Added per-group Spotify Statistics, Ranges, Top Music, and Source surfaces.
+- Added Spotify listening trend snapshots that stay separate from affinity, bias tiers, manual order, ranking history, and Stats history.
+- Added Group Edit AI Mode support for exact Spotify artist-link lookup when Spotify is connected.
+- Added trusted KProfiles/KPopping source-link support inside Group Info and Edit Group.
+- Added Discography 2.0 release detail view inside the Discography modal.
+- Added Apple Music/iTunes-backed release cover art, collection IDs, release type, track counts, and exact tracklists when available.
+- Added personal release ratings without changing source-backed release metadata.
+- Added source-backed audio badges for DOLBY ATMOS, HI-RES LOSSLESS, and LOSSLESS.
+- Added a unified Sync & Backup popup for Cloud Sync and JSON fallback workflows.
+- Added updated Quick Tour sections for Spotify Top Music, Discography 2.0, Sync & Backup, source links, and safer chart/timeframe guidance.
+
+## Improved
+
+- Improved Spotify matching safety by using saved Spotify artist IDs, direct Spotify links, names, aliases, Korean names, discography hints, album hints, and trusted profile source hints.
+- Improved Group Edit AI Mode so the same AI review flow can include an exact Spotify artist link without directly changing affinity, bias tiers, manual order, ranking history, or Stats history.
+- Improved Spotify UI clarity by keeping Top Music, Ranges, and Statistics labels visually consistent and less confusing.
+- Improved Apple Music/iTunes scan acceptance so valid collection URLs and route match maps can be used more reliably.
+- Improved Apple release matching by separating broad search hints from stricter artist-identity approval.
+- Improved Discography scans so older saved entries can be enriched with exact tracklists instead of requiring manual repair first.
+- Improved tracklist merging by comparing actual track title/order signatures instead of only matching track counts.
+- Improved Discography detail navigation so release details can be opened and backed out of inside the same modal flow.
+- Improved audio badge parsing so only source-confirmed labels are shown.
+- Improved Sync & Backup clarity by showing JSON mode as paused while Cloud Sync is active.
+- Improved Settings Data behavior by moving backup/restore work into the unified Sync & Backup flow.
+- Improved chart timeframe chip styling across Spotify Statistics, Spotify Ranges, Spotify Top Music, Affinity Stats, compare series, and Compare All Members.
+- Improved chart hover tooltip behavior so compare overlays stay compact and less intrusive.
+
+## Fixed
+
+- Fixed Apple Music/iTunes scan results that could be found by the route but rejected by the client as “no update.”
+- Fixed incorrect Apple/iTunes match keys that caused valid release results to be harder to merge safely.
+- Fixed false DOLBY ATMOS labels caused by loose parsing of false audio fields.
+- Fixed wrong same-count tracklists being kept when the actual track titles/order did not match.
+- Fixed mojibake by switching corrupted visible text and affected alias text back to proper Unicode.
+- Fixed Group Info profile source pill support for saved KProfiles/KPopping links.
+- Fixed JSON restore being available while Cloud Sync is active, preventing cloud/local restore conflict.
+
+
 # Kpop Stan Vault V1.6-260703
 
 V1.6 focuses on AI progress feedback, mobile responsiveness polish, cloud-sync login clarity, and cleaner review surfaces.
