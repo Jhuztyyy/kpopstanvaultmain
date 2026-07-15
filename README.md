@@ -33,9 +33,9 @@ The project focuses on a polished One UI-inspired interface, stable data preserv
 - Preserve real saved stats history instead of creating fake samples or guessed tier movement.
 - Keep Stats views read-only unless the user explicitly edits data elsewhere.
 
-### Spotify Top Music And Listening Trends
+### Last.fm Top Music And Listening Trends
 
-- Connect Spotify to add read-only listening context for saved groups.
+- Connect Last.fm using username to add read-only listening context for saved groups.
 - Match saved groups using Spotify artist IDs, direct Spotify artist links, group names, aliases, Korean names, discography names, album names, and trusted profile source hints.
 - Use Group Edit AI Mode to include an exact Spotify artist-link check when Spotify is connected.
 - Save confirmed Spotify artist IDs per group for safer future refreshes.
@@ -47,14 +47,14 @@ The project focuses on a polished One UI-inspired interface, stable data preserv
 - Use compact chart hover tooltips in Spotify Ranges so range points behave closer to the normal Spotify Statistics and Affinity Stats chart style.
 - Save read-only Spotify listening snapshots for trend graphs without touching affinity, bias tier, manual order, ranking history, or Stats history.
 
-#### Spotify Range Meaning
+#### Last.fm Range Meaning
 
-- LM uses Spotify recent-play data from the latest refresh and summarizes matched plays from the last month.
-- 4W uses Spotify's short-term top-item window.
-- 6M uses Spotify's medium-term top-item window.
-- ALL uses Spotify's long-term top-item window.
-- Top Music tracks come from matched Spotify top tracks, while Top Music albums are derived only from matched top tracks so albums are not guessed from unrelated artists.
-- Spotify listening data is context-only and should never write into affinity, bias tiers, manual member order, ranking history, or vault Stats history.
+- LM uses Last.fm recent-play data from the latest refresh and summarizes matched plays from the last month.
+- 4W uses Last.fm's short-term top-item window.
+- 6M uses Last.fm's medium-term top-item window.
+- ALL uses Last.fm's long-term top-item window.
+- Top Music tracks come from matched Last.fm's top tracks, while Top Music albums are derived only from matched top tracks so albums are not guessed from unrelated artists.
+- Last.fm's listening data is context-only and should never write into affinity, bias tiers, manual member order, ranking history, or vault Stats history.
 
 ### Discography 2.0 And Release Tracking
 
@@ -65,8 +65,6 @@ The project focuses on a polished One UI-inspired interface, stable data preserv
 - Use Manual Load Tracks as a fallback for older saved entries or one-off fixes.
 - Compare track title/order signatures so same-count but wrong tracklists can be replaced safely.
 - Save personal release ratings without changing source-backed release metadata.
-- Show source-confirmed audio badges only for DOLBY ATMOS, HI-RES LOSSLESS, and LOSSLESS.
-- Exclude Apple Digital Master from the visible audio badge path and avoid showing false audio flags.
 - Use safety warnings for destructive release actions.
 
 ### Upcoming Board And Notifications
@@ -163,7 +161,7 @@ Kpop Stan Vault v2.0-260709 is an actively improved personal vault project with 
 - Vercel
 - Google Gemini API
 - Apple Music / iTunes release data
-- Spotify Web API
+- Last.fm API
 - KProfiles and KPopping profile sources
 - Lucide icons
 - Custom One UI-inspired CSS
