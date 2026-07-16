@@ -2,6 +2,35 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
+# Kpop Stan Vault V2.5-260716
+
+V2.5 focuses on last.fm and Spotify Support Drop and QoL Improvements
+
+## Tracking Links
+
+- [Issue #43 - Audio Badge issues](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/43)
+- [Issue #42 - Header Improvements](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/42)
+- [Issue #47 - Last.fm integration](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/47)
+
+
+## Added
+
+- Last.fm integration uses only last.fm username
+
+## Improved
+
+- Improved Handling for the last.fm with no scrobbles between last.fm and group entry
+
+## Fixed
+
+- Performance Improvements
+
+## Removed
+
+- Spotify Integration
+- Audio Badges on the Discography Entry
+  
+
 # Kpop Stan Vault V2.0-260709
 
 V2.0-260709 focuses on Discography 2.0, Spotify Integration, Spotify read-only listening context, trusted profile source links, unified Sync & Backup, and updated in-app guidance.
