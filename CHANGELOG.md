@@ -17,7 +17,7 @@ V3.0 focuses on Soloist Support, Last.fm Add-ons, Few QoL improvements and Perfo
 ## Added
 
 - Last Session Restore 
-- Checkbox ""Flag as Wrong"" in AI review Field
+- Checkbox "Flag as Wrong" in AI review Field
 - Soloist Stan Support same functionality as Group Stan
 - Last.fm Recent Scrobbles
 
