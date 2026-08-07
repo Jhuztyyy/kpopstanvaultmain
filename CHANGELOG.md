@@ -2,6 +2,38 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
+# Kpop Stan Vault V3.0-260807
+
+V3.0 focuses on Soloist Support, Last.fm Add-ons, Few QoL improvements and Performance Improvements
+
+## Tracking Links
+
+- [Issue #44 - AI Mode still detects Disbanded status on the Active Groups](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/44)
+- [Issue #46 - Add a checkbox in AI review field](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/46)
+- [Issue #49 - Fix all buttons not the same rounded corners as One UI 8.5 and the Loading Animation uses RefreshCW on some buttons](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/49)
+- [Issue #51 - Add Recent Scrobbles](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/51)
+
+
+## Added
+
+- Last Session Restore 
+- Checkbox ""Flag as Wrong"" in AI review Field
+- Soloist Stan Support same functionality as Group Stan
+- Last.fm Recent Scrobbles
+
+## Improved
+
+- AI Mode still detects disbanded Groups
+
+## Fixed
+
+- All Buttons, Loading Animation and Mobile UI inconistencies has been fixed
+- Performance Improvements especially on the Mobile UI
+
+## Removed
+
+- Completely Removed Audio Badges 
+
 # Kpop Stan Vault V2.5-260716
 
 V2.5 focuses on last.fm and Spotify Support Drop and QoL Improvements
