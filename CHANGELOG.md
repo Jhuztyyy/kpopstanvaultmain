@@ -23,11 +23,12 @@ V3.0 focuses on Soloist Support, Last.fm Add-ons, Few QoL improvements and Perfo
 
 ## Improved
 
+- Renamed Top Music to Listening Activity in Home Page
 - AI Mode still detects disbanded Groups
 
 ## Fixed
 
-- All Buttons, Loading Animation and Mobile UI inconistencies has been fixed
+- Some Buttons, Loading Animation and Mobile UI inconsistencies has been fixed
 - Performance Improvements especially on the Mobile UI
 
 ## Removed
