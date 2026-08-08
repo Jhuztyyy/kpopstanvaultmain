@@ -2,7 +2,7 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
-# Kpop Stan Vault V3.0-260807
+# Kpop Stan Vault V3.0-260808
 
 V3.0 focuses on Soloist Support, Last.fm Add-ons, Few QoL improvements and Performance Improvements
 
