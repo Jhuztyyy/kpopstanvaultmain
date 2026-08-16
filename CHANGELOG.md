@@ -2,6 +2,34 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
+# Kpop Stan Vault V3.2-260817
+
+This update focuses on Manual Bias rank accuracy, soloist share-page parity, and a handful of fixes across the main app.
+
+## Tracking lists
+- [Issue #52 - Fix Snapshot for both Soloist and Groups](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/52)
+- [Issue #53 - Add Filter for both Group and Soloist](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/53)
+- [Issue #54 - Rank statistics of each member in group entry and soloist is not working](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/54)
+
+## Added
+
+- Advanced Filter: "Groups" option, alongside the existing "Soloists" filter
+- Soloist Details card: subtle entrance animation
+
+## Improved
+
+- Share page: "Group Description," "Group Stan Info," "Group Profile," "Group Affinity," "Group Affinity Graph," and "Members List" now read correctly for soloist entries instead of always saying "Group"
+- Renamed "Edit Group Stan info" to Edit Soloist Stan Info" for Soloist Entry
+
+## Fixed
+
+- Build error: duplicate closing tag in the Last.fm Top Songs modal
+- Manual Bias rank (#N) not saving, and rank history not recording, when reordering via Edit Members
+- Global Bias List: rank history could be off by one when a former/hiatus member was mixed into a group
+- Share page: soloist profile icon showed a placeholder instead of the member's own photo
+- Share page: large empty gap between the description and Members List sections
+- Member Statistics → Rank tab: 1Y/ALL charts back-dated the current rank all the way to the window edge even for members added days ago — now starts from the entry's actual creation date, matching the Statistics tab
+
 # Kpop Stan Vault V3.0-260808
 
 V3.0 focuses on Soloist Support, Last.fm Add-ons, Few QoL improvements and Performance Improvements
