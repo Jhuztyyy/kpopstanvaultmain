@@ -1,6 +1,6 @@
 # Kpop Stan Vault
 
-Kpop Stan Vault is a private personal K-pop vault project for organizing groups, members, bias tiers, affinity, statistics, discography, upcoming events, public snapshots, Spotify listening context, and vault backups in one clean dashboard.
+Kpop Stan Vault is a private personal K-pop vault project for organizing groups, members, bias tiers, affinity, statistics, discography, upcoming events, public snapshots, Spotify/Last.fm listening context, and vault backups in one clean dashboard.
 
 The project focuses on a polished One UI-inspired interface, stable data preservation, smooth popups, reliable stats history, source-backed profile and release data, safe AI review, and safer multi-device sync behavior.
 
@@ -30,12 +30,15 @@ The project focuses on a polished One UI-inspired interface, stable data preserv
 - Display visual stat changes for members and groups.
 - Compare members and groups with chart-based statistics.
 - Use cleaner timeframe chips and compact hover tooltips across group, member, compare-series, and compare-all chart surfaces.
+- View ranked Nation, Generation, Role, and MBTI highlight cards led by the actual top-ranked member's photo and name, not just a label and count.
+- Browse a Top Picks tab showing the #1, #2, and #3 ranked member per category.
 - Preserve real saved stats history instead of creating fake samples or guessed tier movement.
 - Keep Stats views read-only unless the user explicitly edits data elsewhere.
 
 ### Last.fm Top Music And Listening Trends
 
 - Connect Last.fm using username to add read-only listening context for saved groups.
+- Sync a connected Last.fm username automatically across signed-in devices.
 - Match saved groups using Spotify artist IDs, direct Spotify artist links, group names, aliases, Korean names, discography names, album names, and trusted profile source hints.
 - Use Group Edit AI Mode to include an exact Spotify artist-link check when Spotify is connected.
 - Save confirmed Spotify artist IDs per group for safer future refreshes.
@@ -44,6 +47,8 @@ The project focuses on a polished One UI-inspired interface, stable data preserv
 - Search Top Music by track, album, group, artist, or saved album-track text.
 - Use LM, 4W, 6M, and ALL ranges with clearer labels so Spotify recent-play windows and Spotify top-item windows are not confused.
 - View per-group Spotify Statistics, Ranges, Top Music, and Source tabs.
+- See per-range scrobble counts alongside listening ranks on the Home group card tooltip and the group detail page's Listening tile.
+- Sort saved groups by Top Scrobbles on Home for a listening-based ranking.
 - Use compact chart hover tooltips in Spotify Ranges so range points behave closer to the normal Spotify Statistics and Affinity Stats chart style.
 - Save read-only Spotify listening snapshots for trend graphs without touching affinity, bias tier, manual order, ranking history, or Stats history.
 
@@ -74,6 +79,8 @@ The project focuses on a polished One UI-inspired interface, stable data preserv
 - Group related notifications for a cleaner event view.
 - Handle pre-debut groups separately from normal group anniversaries.
 - Keep unstanned groups hidden from event surfaces where they should not appear.
+- See a live, per-second countdown on notification badges instead of a flat day count.
+- Preview every event on a calendar day at a glance with a hover popover, without needing the single-line tooltip.
 
 ### Public Share Snapshot
 
@@ -110,7 +117,7 @@ The project focuses on a polished One UI-inspired interface, stable data preserv
 
 Kpop Stan Vault follows a polished One UI-inspired design direction.
 
-The interface focuses on rounded cards and popups, smooth modal animations, clean member and group layouts, color-adaptive UI elements, mobile-friendly scrolling, consistent styling across the vault and public snapshots, and clear visual hierarchy for stats, releases, Spotify listening context, sync tools, and events.
+The interface focuses on rounded cards and popups, smooth modal animations, clean member and group layouts, color-adaptive UI elements, mobile-friendly scrolling, consistent styling across the vault and public snapshots, and clear visual hierarchy for stats, releases, Spotify/Last.fm listening context, sync tools, and events.
 
 The design goal is to feel personal, organized, and expressive without turning the vault into a generic dashboard.
 
@@ -127,7 +134,7 @@ AI features are used as review assistance, not as automatic ownership of saved d
 
 ## Privacy And Data Safety
 
-Kpop Stan Vault stores important user-created data such as groups, members, bias tiers, affinity values, statistics history, snapshots, Spotify link context, and backups.
+Kpop Stan Vault stores important user-created data such as groups, members, bias tiers, affinity values, statistics history, snapshots, Spotify/Last.fm link context, and backups.
 
 Development changes should avoid:
 
@@ -138,7 +145,7 @@ Development changes should avoid:
 - Overwriting local changes before sync succeeds.
 - Modifying backups without user confirmation.
 - Creating fake stats samples or fake tier history.
-- Letting Spotify listening context change affinity, bias tiers, ranking history, or manual order.
+- Letting Spotify/Last.fm listening context change affinity, bias tiers, ranking history, or manual order.
 - Exposing private implementation details.
 
 Safe updates should be isolated, reversible, and tested carefully.
@@ -151,7 +158,7 @@ The project source, setup process, database structure, and private configuration
 
 ## Project Status
 
-Kpop Stan Vault v2.0-260709 is an actively improved personal vault project with ongoing focus on performance, mobile polish, snapshot stability, statistics reliability, sync safety, UI consistency, discography accuracy, Spotify listening-context clarity, AI review quality, and data preservation.
+Kpop Stan Vault v2.0-260709 is an actively improved personal vault project with ongoing focus on performance, mobile polish, snapshot stability, statistics reliability, sync safety, UI consistency, discography accuracy, Spotify/Last.fm listening-context clarity, AI review quality, and data preservation.
 
 ## Tech Stack
 
@@ -170,7 +177,7 @@ Kpop Stan Vault v2.0-260709 is an actively improved personal vault project with 
 
 Special thanks to [KProfiles.com](https://kprofiles.com/) for being a helpful public K-pop profile reference for group and member information.
 
-Kpop Stan Vault is an independent personal vault project and is not affiliated with KProfiles, KPopping, Apple, Spotify, or any K-pop company.
+Kpop Stan Vault is an independent personal vault project and is not affiliated with KProfiles, KPopping, Apple, Spotify, Last.fm, or any K-pop company.
 
 ## License
 
