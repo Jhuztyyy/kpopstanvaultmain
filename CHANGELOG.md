@@ -2,6 +2,185 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
+# Kpop Stan Vault V5.1-260918
+
+V5.1 focuses on Stan highlights add-on, several QoL improvement on countdown and a fix
+
+
+### Added
+
+- Added a "Top 3 Groups" card to Stan Statistics → Overview, below Stan Highlights — tap a row to jump to that group. Ranks each group by a blended score (60% affinity + 40% Last.fm listening), falling back to affinity alone when a group has no Last.fm match, same as Wrapped's peak-affinity fallback. Documented in the in-app Tutorial's Vault Statistics section.
+
+### Improved
+
+- Compact live countdown ("2d 3h" / "9h 17m" / "15m 52s", or "4m 24d" once a target is a calendar month or more out) — rewrote the countdown formatter to only show the two largest non-zero units instead of the old verbose "17 days 4h 26m 52s" style, and to switch to calendar-accurate months + days (not a flat 30-day guess) once the target is 30+ days away, so a 146-day countdown now reads "4m 24d" instead of "146d 3h". The calendar's "Upcoming · Next 30 days" list (Today / "in 3d" / "in 4d") now uses this same live, ticking countdown instead of a static day-count pill; "Today" and "Xd ago" stay as plain text since there's no meaningful sub-day target for those. The notification bell's countdown badges now use the same tighter format too, so both places read consistently.
+- Notification popup split by date — the Notifications bell popup now groups entries under a date header ("Today", "Tomorrow", or the actual weekday + date) instead of one continuous list, with each section only containing events landing on that day.
+- Marked the context menu's dismiss-on-scroll listener as passive, matching every other scroll/touch listener in the app — the browser no longer has to wait on JS before it can start compositing scroll on mobile while a context menu is open.
+
+### Fixed
+
+- Fixed the Entry Type toggle (Group / Soloist) rendering invisible or unreadable text on lighter theme colors — the active pill picked its text color with `readableOnBg`, a function meant to tint a brand color for visibility against the app's dark page background, not to pick text for a pill whose background *is* that color. For light pastel theme colors this just returned the color unchanged, making the label blend into its own background. Switched to `getContrastYIQ`, which is already used for this exact case elsewhere in the app, so the toggle is now legible for the full theme color range.
+
+# Kpop Stan Vault V5.0-260917
+
+V5.0 focuses on Bunch of added features, several improvements and changes
+
+## Added
+
+- Added right-click (long-press) context menus across Home group cards, Pinned Stans shortcuts, Active/Former Members lists, Top Members, Notifications, Listening Activity, and Stan Statistics
+- Added "View Statistics" and "Members" quick actions to group context menus
+- Added a live countdown timer to the notification board (e.g. "17 days 4h 26m 52s") instead of a flat day count
+- Added member and group photos to the calendar day hover preview instead of plain color dots
+- Added a "Refreshed ..." freshness label to Listening Activity that updates live (Just now / 5m ago / 2h ago)
+- Added a yearly "Wrapped" recap — #1 bias and #1 group by peak affinity, biggest affinity climber, rising bias, tier promotions, groups and members added that year, a top 5 by peak affinity, and a Last.fm listening card with total scrobbles and estimated hours. Opens from Vault Tools, steps back through previous years, and copies to the clipboard as a shareable summary
+- Added a Monthly view to Wrapped alongside the original Yearly one — same recap (top bias/group, climbers, promotions, additions, top 5, listening card), scoped to a single calendar month instead of a year. Switch between Yearly and Monthly with a tab inside Wrapped, and step back through previous months the same way years already worked. The listening card uses Last.fm's rolling 1-month window in Monthly mode (12-month in Yearly), and is only shown for the current month/year since Last.fm doesn't expose calendar-accurate history
+- Added a dedicated Wrapped button to the Home screen header (next to the Cloud/JSON sync icon), so Wrapped no longer requires opening Settings → Vault Tools first
+- Added a Cloud Sync conflict screen — when the same field was edited on two devices since the last sync, the merge now records it and shows both versions side by side (This device / Other device) with the timestamps and which one was auto-kept, so you can flip the decision
+- Added a "Tap to review" conflict toast that opens the conflict screen directly
+- Added dismissible issues to Vault Doctor — each row can be dismissed with a "Dismiss" button, collects in a new Dismissed tab, and can be restored one at a time or all at once
+- Added "Tap to undo" on the toast after deleting a member or group — restores instantly without a second confirmation, on top of the existing 14-day Soft Delete Bin recovery
+- Added a Compact / Comfortable / Spacious density toggle for the home grid and list views
+- Added drag-to-reorder on Pinned Stans shortcuts, independent of the real group ranking
+- Added "Unread only" filter, "Snooze until tomorrow", and a bulk "Show all snoozed" control to the notification board
+- Added saved filter presets on Home — save the current search/status/sort combo as a named chip and reapply it later
+- Added Quick-look peek — hover-hold a home group card (desktop) to see a compact summary (photo, rank, affinity, member count, tier breakdown, debut date, members list) without opening the full card. Skipped on touch devices since long-press there already opens the context menu, and stacking two long-press gestures on the same card would just create a confusing conflict.
+
+## Improved
+
+- Improved the context menu with a header (photo + name), keyboard navigation (arrows, Home/End, Escape), and a new opening animation with a staggered row reveal
+- Improved app performance by fixing a cloud sync bug that was silently recreating functions on every render, which had been defeating the group grid's re-render protection almost constantly
+- Improved the boot loading screen to use the app's actual branded wordmark and a richer status pill instead of plain placeholder text
+- Improved the "4H"/"4M" relative-time badges so hours read as "hr" instead of a single letter, removing the mix-up at small sizes
+- Updated the in-app "How to use" tutorial with every new feature added this session
+
+## Fixed
+
+- Fixed the search bar breaking into an oversized, unstyled stacked layout at certain window widths (1024–1179px)
+- Fixed a loading-screen flicker on boot for signed-in Cloud Sync users, caused by the auth check not being awaited correctly
+- Fixed notification timing lag caused by background-tab throttling by re-checking the moment the app is foregrounded again
+- Fixed a dead/unused state variable left over from an earlier build
+- Fixed Top Members rows re-rendering on every modal update regardless of whether that row's own data changed — the row click/remove handlers were being recreated fresh on every render instead of reused
+- Fixed the same tier-badge styling being rebuilt from scratch on every row render across both Top Members and the group's Active Members list — now computed once and reused
+- Fixed the notification board's live countdown re-rendering the entire notification list every second instead of just the countdown number itself
+- Member icon sortation in the group card has been fixed. Linked to Members list
+
+## Changes
+
+- Manual Bias sorting now disables affinity sorting mode
+- Changed Cloud icon to dynamic icon whether if its JSON linked or Cloud sync
+
+# Kpop Stan Vault V4.5-260911
+
+V4.5 focuses on QoL Updates, Polishes, New features and several improvements and fixes
+
+## Tracking Links
+
+- [Issue #63 - Update Gemini deprecated models](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/63)
+- [Issue #64 - Scan discography bug](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/64)
+- [Issue #65 - Cloud sync when signed out issue](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/65)
+
+
+## Added
+
+- Added MBTI and Top Picks in Stan Statistics
+- Added Last.fm cloud sync
+- Added a hover preview on calendar days
+- Added No. of scrobbles each group and soloist
+
+
+## Improved
+
+- Stan Statistics can now display Smart Top 1 from Top Members
+- Gemini Models has been updated and improved
+- Slightly Improved and Repolished Notification popup
+- Improved Sign Out experience, now deletes entry when signing out of Cloud sync
+- Slightly repolished tabs
+- "A to Z"/"Z to A" now sort by group/soloist name (case-insensitive),
+- "Newest Debut"/"Oldest Debut" now sort by debutDate, with the same "unknown date parses to 0" convention the existing "First Stan" sort already used.
+
+
+## Fixed
+
+- Scan discography bug scan has been fixed
+- Top Member mismatch in Stan Statistics from Top member smart has been fixed
+
+# Kpop Stan Vault V4.2-260907
+
+V4.2 focuses on UI changes, Several Improvements and fixes
+
+## Tracking Links
+
+- [Issue #60 - Settings needs rearrangement](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/60)
+- [Issue #61 - AI mode still needs consistency](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/61)
+
+## Added
+
+- New Loading vault screen when opening the Stan Vault
+
+## Improved
+
+- Some UI elements has been improved
+- Recent Scrobble activity usability has been improved
+- Settings UI has been rearranged
+- Member info Group Button now redirects to its group entry
+- Notification messages has been improved
+- General Performance Improvements
+- Cloud Sync now includes Last.fm Statistics
+
+## Fixed
+
+- No Push Notification has been addressed
+- AI mode consistency on 2nd scan is fixed, I guess
+
+## Removed
+
+- Install Stan Vault Button
+
+# Kpop Stan Vault V4.0-260905
+
+V4.0 focuses on Real time push notification and Several improvements.
+
+## Tracking Links
+
+- [Issue #56 - Rank statistics bug](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/56)
+- [Issue #57 - Notification support](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/57)
+- [Issue #58 - Recent scrobbles visibility](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/58)
+- [Issue #59 - Improve the QoL and functionality of Last session restore.](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/59)
+
+
+## Added
+
+- Real time push notifications (Settings -> General -> Push Notifications)
+
+## Improved
+
+- Cloud performance improvements
+- Security of Cloud Database improvements
+- QoL improvements of the Last Session Restore New LAST_ACTIVE_TS_KEY (kpop_vault_last_active_ts) is stamped the moment the user genuinely leaves — tab hidden, pagehide, or beforeunload — not just on navigation. New LAST_SESSION_RESTORE_MIN_AWAY_MS = 2 minutes. On load, restoreLastViewedGroup now computes awayMs = now - lastActiveTs. If under 2 min, it skips the restore and lands on Hub. If 2+ min (or no timestamp at all, e.g. first-ever load), it restores as before
+- Recent Scrobble visibility can now show up to 14D
+
+
+## Fixed
+
+- Rank Statistics Bug on All and 1Y has been fixed
+- AI mode sometimes doesn't detect new group such as TUIDE and OURBIRTHDAY
+
+## Removed
+
+- Several Dead codes has been removed and refactored
+
+
+# Kpop Stan Vault V3.2.1-260818
+
+This update focuses on AI mode scan improvements. 
+
+## Tracking lists
+- [Issue #55 - AI mode can read former members and it will flagged as Former member](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/55)
+
+## Added
+
+- AI mode can read Former members "ifMember: Former" then it will flag as Former Member of the Group.
+
 # Kpop Stan Vault V3.2-260817
 
 This update focuses on Manual Bias rank accuracy, soloist share-page parity, and a handful of fixes across the main app.
