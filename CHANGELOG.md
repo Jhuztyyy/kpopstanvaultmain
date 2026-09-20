@@ -2,6 +2,52 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
+# Kpop Stan Vault V5.2.1-260919
+ 
+V5.2.1 makes the Edit Members popup faster and easier to use, adds a proper Add Member popup, and stops deleted members and entries from coming back when you use more than one device. Feature update from 5.0
+ 
+## Tracking Links
+ 
+- [Issue #67 - Improve the use of the members sortation popup](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/67)
+- [Issue #69 - Dont pin to top the Pinned Group and Soloist entry](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/69)
+- [Issue #70 - Recent scrobbles issue in the Lastfm statistics popup recents tab](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/70)\
+
+## What's new
+ 
+- **New Add Member popup** — adding a member now opens a full popup that looks just like Edit Member: photo, name, birthday, bias tier, nationality, roles and notes. Open it with the new **+** button in Edit Members, the new **Add Member** button next to **Compare All**, or from Top Members.
+- **Undo and Redo** — Edit Members now has Undo and Redo buttons at the top. They work for reordering, sorting, adding and removing members (Ctrl+Z to undo, Ctrl+Shift+Z to redo).
+- **Faster reordering** — every row has small up and down arrows. Tap a member's rank number to type a new rank or send them straight to the top or bottom. On a keyboard, Alt + ↑ / ↓ moves the selected member (add Shift to jump to the top or bottom).
+- **Select a member and move them** — tap a member in Edit Members and they light up in your group's colour. Then use Alt + ↑ / ↓ to move them (Alt + Shift + ↑ / ↓ for the top or bottom). They stay highlighted as they move, and the popup's subtitle tells you who is selected. Tap an empty spot to deselect.
+- **Sort buttons** — sort members A–Z or by birthday with one tap.
+- **Unsaved changes warning** — closing Edit Members with changes you haven't saved now asks you first.
+- **Auto-scroll while dragging** — dragging a member in a long list now scrolls the list for you.
+
+## Improved
+ 
+- The Edit Members popup is wider and roomier, with bigger pictures and buttons. The Global Bias List got the same spacing.
+- The member rows are tidier: no more big empty gap, and the rank numbers line up.
+- Member cards on the group page now show country flags instead of letters like "KR".
+- The "Reordered" pop-up after every move is gone, since Undo and Redo do the job.
+- The Back button and Escape now close the popup you're actually looking at — including notifications, the calendar, the photo editor, dropdown lists and right-click menus.
+- The sync conflict notice is clearer. It only appears for something new, tells you what changed (for example "Kim ChaeYeon's birthday"), and stays quiet when you already have the conflict screen open.
+
+## Fixed
+ 
+- **Deleted members and entries coming back** when you use more than one device. A deletion on one device now sticks on all of them.
+- **Restored items disappearing again.** Members and entries restored from the Recently Deleted bin or a backup now stay restored.
+- **Flags showing as letters** like "JP" and "KR" on Windows.
+- **Pinned groups and soloists** no longer jump to the top of the main Home grid; pinning only affects the Pinned Stans shelf.
+- **Refresh on the Last.fm Recent tab** now actually refreshes the list.
+- **Closing the single-member editor** from inside Edit Members now returns you to the popup properly.
+- **Escape and Back on a member profile** now take you back to the Bias List or Calendar you came from.
+- **Undo** no longer carries over into a different group, and Ctrl+Z no longer interferes while you type a name.
+- **Sorting** no longer marks every member as freshly edited, which could win over your other devices.
+- Fixed an issue where context menu with 10+ items are overflowed.
+- Fixed a wiring issue where "Members" and "Edit group" on a group card's right-click menu (Home grid and the Pinned Stans shelf) silently navigated into that group's detail page behind the popup. Both actions reused the same flag that switches Home into the detail view, needed to make their modals work, but nothing ever cleared it afterward — so closing the popup left you stranded on a detail page you never asked to open, instead of back on Home. Closing either popup now returns to Home when it was opened this way from a card; opening the same popups from inside a group's own detail page still behaves as before and stays there on close.
+- Cleaned up a hidden glitch that could add junk to saved member data. Existing data is tidied automatically.
+
+
+
 # Kpop Stan Vault V5.1-260918
 
 V5.1 focuses on Stan highlights add-on, several QoL improvement on countdown and a fix
