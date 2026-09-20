@@ -9,6 +9,7 @@ V5.2.1 makes the Edit Members popup faster and easier to use, adds a proper Add 
 ## Tracking Links
  
 - [Issue #67 - Improve the use of the members sortation popup](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/67)
+- [Issue #68 - Improve the UI of the members list sortation popup](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/68)
 - [Issue #69 - Dont pin to top the Pinned Group and Soloist entry](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/69)
 - [Issue #70 - Recent scrobbles issue in the Lastfm statistics popup recents tab](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/70)\
 
