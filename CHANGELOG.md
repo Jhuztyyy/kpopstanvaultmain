@@ -2,6 +2,29 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
+# Kpop Stan Vault V5.3-260925
+
+V5.3 adds a snooze action right on push notification reminders and a way to test push notifications, tightens up a couple of security/reliability gaps, and restores real offline support.
+
+## What's new
+
+- **Snooze reminders right from the push notification** — birthday/comeback/anniversary push notifications now show "Snooze 1 day" and "Snooze 3 days" actions. Tapping one snoozes it on the notification board without opening the app first, whether the app was already running, backgrounded, or fully closed.
+- **"Send test reminder" button in Settings** — once push notifications are turned on, a button next to "Remove this device" sends one immediate test push, so you can confirm it actually works on this device before trusting it for real reminders.
+
+## Improved
+
+- **Sync Improvements** — The Cloud/JSON sync icon's status dot now shows more than just "syncing" — it lights up amber when offline, red when the last sync failed, and violet when there's an unresolved sync conflict waiting for review, with a matching tooltip. Previously only syncing and a local-JSON-reconnect state showed up there at all.
+- Shared vault cards (Share and Snapshot links) are no longer indexable by search engines by default, since a share link is meant for whoever you send it to, not for search results.
+- **Wrapped ranking is now accurate** — anything you added partway through a month or year no longer gets penalized for the days before you added it, so new additions show up in Wrapped where they belong.
+- **Wrapped now matches Top Members** — when several members are tied at 100%, Wrapped now orders them the same way Top Members (Smart) does instead of alphabetically.
+- **Top Group breaks ties by listening** — when two groups are tied, the one you played more on Last.fm now comes first.
+- **Applies to both Monthly and Yearly Wrapped.**
+
+## Fixed
+
+- **Offline mode wasn't actually caching anything.** — The service worker's offline fallback called `caches.match()` on every request, but nothing ever wrote a response into any cache, so it silently returned nothing every time you went offline. Rebuilt it with a real strategy: network-first (and cache-writing) for page loads, stale-while-revalidate for everything else.
+- **The nightly reminder cron endpoint could run unauthenticated.** — If `CRON_SECRET` was ever unset in a deployment, the auth check silently skipped itself instead of refusing turning the route into a public endpoint that could push a notification to every user. It now fails closed and refuses to run without a configured secret.
+
 # Kpop Stan Vault V5.2.1-260919
  
 V5.2.1 makes the Edit Members popup faster and easier to use, adds a proper Add Member popup, and stops deleted members and entries from coming back when you use more than one device. Feature update from 5.0
