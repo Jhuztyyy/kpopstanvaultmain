@@ -25,7 +25,7 @@ V5.3 adds a snooze action right on push notification reminders and a way to test
 - **Offline mode wasn't actually caching anything.** — The service worker's offline fallback called `caches.match()` on every request, but nothing ever wrote a response into any cache, so it silently returned nothing every time you went offline. Rebuilt it with a real strategy: network-first (and cache-writing) for page loads, stale-while-revalidate for everything else.
 - **The nightly reminder cron endpoint could run unauthenticated.** — If `CRON_SECRET` was ever unset in a deployment, the auth check silently skipped itself instead of refusing turning the route into a public endpoint that could push a notification to every user. It now fails closed and refuses to run without a configured secret.
 
-# Kpop Stan Vault V5.2.1-260919
+# Kpop Stan Vault V5.2.1-260921
  
 V5.2.1 makes the Edit Members popup faster and easier to use, adds a proper Add Member popup, and stops deleted members and entries from coming back when you use more than one device. Feature update from 5.0
  
