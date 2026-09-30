@@ -2,6 +2,42 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
+# Kpop Stan Vault V6.0-261001
+
+V6.0 fixes a mix-up between real names and stage names that was breaking AI mode, brings full Last.fm stats to Share and Snapshot links, and cleans up several visual bugs on those shared pages.
+
+## Tracking Links
+
+- [Issue #72 - AI mode improvements](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/72)
+- [Issue #71 - Improve the Experience of the Snapshot](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/71)
+
+## What's new
+
+- **Stage Name and Birth Name are now separate fields.** Every member can have both a Stage Name (their public/idol name) and a Birth Name (their real name) — each one editable by hand or filled in by AI mode, and both always shown in the member's profile popup once set.
+- **Last.fm now shows up on Share and Snapshot links.** Turn it on in the Share Snapshot popup and anyone with the link sees the same Last.fm card you do — trend percentage, ranks across all six Last.fm ranges, scrobble counts, and recent scrobbles.
+- **Last.fm history and a "View Full Stats" button on shared links.** The Last.fm card on Share/Snapshot pages now shows how many real samples it's based on plus a small trend graph over time, and a new "View Full Stats" button expands a full rank/score/scrobble breakdown for every range (1W, 1M, 3M, 6M, 12M, All).
+
+## Changes
+- **Redesigned Members profile info popup.** The Members profile info popup received a redesigned UI to see infos clearly and easy to read. 
+- **Redesigned Settings Menu.** The settings menu has been redesigned
+- **Updated Icons in Home page.** Toolbar icons has been updated
+
+## Improved
+
+- **AI mode now looks up idols by Stage Name instead of Real/Birth Name.** Real names rarely turn up anything on the sites AI mode checks, so it used to come back empty and show a misleading "quota reached" message instead of the real problem. It now searches by Stage Name first and only falls back to Birth Name if no Stage Name is set.
+- **AI mode can now find and fill in Birth Name**, the same way it already does for birthday, height, MBTI, and everything else.
+- **The Last.fm Ranges graph now labels each point by its range** (1W, 1M, 3M, 6M, 12M, All) instead of a confusing clock time like "19:45" or "21:00", which never meant anything there in the first place.
+- **Last.fm widget statistics improvement.** Updated Last.fm widget statistics on Group/Soloist entry includes additions of Mini graph of listening stats, detailed info and Recent scrobbles album art. 
+
+## Fixed
+
+- **A big blank gap between Discography and Members List on Share and Snapshot links.** Members List was accidentally set to always start below the side panel's full height instead of right after Discography, leaving a large empty space whenever the side panel had more in it than the main content did.
+- **Country flags on Share and Snapshot member cards showed as plain text** ("KR", "JP") **instead of real flag icons**, unlike the main app.
+- **The Group/Member Statistics popup on Share and Snapshot links closed instantly with no animation**, instead of fading out smoothly like every other popup in the app.
+
+## Removed
+-**Removed Sources.** KPopping sources is completely removed
+
 # Kpop Stan Vault V5.3-260925
 
 V5.3 adds a snooze action right on push notification reminders and a way to test push notifications, tightens up a couple of security/reliability gaps, and restores real offline support.
