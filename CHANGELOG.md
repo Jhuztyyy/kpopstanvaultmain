@@ -2,6 +2,109 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
+# Kpop Stan Vault v6.4-261004
+
+V6.4 brings the public Snapshot page in line with the main group page (same info chips, Stanned For / Since Debut cards, Last.fm window and Discography 2.0), gives every group one stable, readable share link per account, shows when Cloud last synced and what a sync conflict is about, and adds a quiet review queue for old affinity ratings, an MV link on every release that works in any browser, proper Android app icons, and a screen-reader pass over the buttons.
+
+### Added
+- **"Last synced 2 min ago"**: the Cloud panel's status line now reads as a live relative time ("just now", "2 min ago", "3 h ago") that keeps updating while the panel is open. It turns amber if the last sync failed or is over an hour old, and hovering it still shows the exact date and time.
+- **Conflict preview**: when a sync finds a field changed on two devices, the toast and the Cloud panel now say what differed, for example "Haum's affinity: 90 here, 85 on the other device (kept this device's)", with a Review button that opens the conflict screen.
+- **Make link readable**: a Share popup button for old random-number links. It switches the group to a readable link and disables the old one (you are asked first).
+- **Affinity review**: Settings → Data → Vault Tools → **Affinity review** lists active members whose rating hasn't been changed in 90+ days, oldest first, with how long ago it was rated. **Review** opens the member, **Still right** confirms the rating, **Snooze 30d** hides it for a month. It is a list you open on purpose: no pop-ups, no badges. Confirming or snoozing never edits the rating or its history, and is remembered on this device only.
+- **MV link on every release**: open a release in a group's discography and tap **+ MV link** (or **Edit MV link**). Paste a YouTube link and Save; leave it empty and tap Remove to clear it. It is a normal text box, so it works in every browser, including Samsung Internet and Vivaldi. The link shows as the ▶ MV chip.
+- **Maskable app icon**: the installed app now has an Android adaptive icon (the S/V mark centered on the app's dark background), so the launcher can round it instead of putting it in a box.
+- **Load More Scrobbles on Snapshots**: the Recent tab lists only scrobbles matched to the group's Last.fm artist, 10 at a time, with a Load More Scrobbles button. A snapshot can hold up to 60 saved scrobbles (it was 5), plus 10 top tracks and 12 top albums.
+- **Added / Updated dates on Snapshots**: shown as chips, like the main page.
+
+### Changed
+- **One share link per account, not per device**: the Share popup now finds a group's link from your account, so a link made on one device can be copied, updated or disabled from any other signed-in device.
+- **Update Link keeps the same URL**: it used to create a brand-new link and disable the old one every time. Now it refreshes the snapshot behind the link you already shared. **New Link** still creates a different URL on purpose.
+- **Readable share links**: new links look like `/share?shareId=kiiikiii-jhuzty` (group name + account name) instead of random digits. If that name is already taken by another account or another group, it becomes `-2`, `-3` and so on, so two links can never collide. Existing random links keep working until you choose to switch them.
+- **Snapshot info chips match the group page**: the same icons and order as the main entry (label, generation, flag, Debuted, Stanned, Added, Latest/Upcoming, Updated), instead of emoji. The Active / Pre-debut / Planned / Disbanded badge uses the same rules as the main app.
+- **Snapshot Stanned For / Since Debut cards match**: the same icon-box layout, including "Debuting In" and "Debuts Today".
+- **Snapshot Latest Release card matches**: it now shows the same release count chips ("8 releases", "4 singles", "4 EPs", "Since 2025") and the same Discography footer button.
+- **Snapshot Last.fm window matches the main one**: same header, tab strip and info bar. Statistics has the chart, timeframe strip and stat cards. Ranges has the range chart. Top Music shows numbered tracks (#1, #2, #3 ...) with real track artwork and a larger album grid. Source has the artist link.
+- **Snapshot Discography is now Discography 2.0**: the same window as the main app, read-only: overall rating, search, release type filters, year timeline, release cards, and the release detail view with cover art, rating, release notes, ▶ MV link and the full tracklist. Edit tools (scan, add, remove, rate) are not shown.
+- **Theme colors agree**: the installed app's theme color was pink while the page was dark blue, so the status bar and splash screen could mismatch. Both now use the app's dark blue (#0f172a).
+- **One icon set**: the app now uses a single, sharp icon set. The unused blurry second set is removed.
+
+### Accessibility
+- **Icon-only buttons now have names**: 26 buttons that screen readers announced as just "button" are labeled: every popup's close (X) button, the clear-search buttons, Remove member, Delete this entry, Remove from comparison, and the Home header buttons (Stan Profile, How to use, Stan Statistics, Vault Doctor, Cloud Sync, Wrapped, Settings).
+
+### Fixed
+- **MV links were wiped by discography refreshes**: refreshing or auto-extracting a group's discography blanked any saved MV link. Saved MV links are now kept.
+- **Snapshot member popup on phones**: a popup that fails to open no longer crashes the whole Snapshot page: it closes and shows a short notice, and the popup's code is now fetched in the background so the first tap doesn't wait on a slow connection.
+- **Manifest was linked twice**: the app's web manifest was declared twice in the page head. The duplicate is removed.
+
+### Under the hood
+- All public snapshot routes (`/share`, `/snapshot`, with or without an id) now render from one shared page, so they can't drift apart. The Discography release card, its helpers and the group lifecycle helpers moved out of the main page into shared code that the Snapshot page also uses; the main page is about 700 lines shorter.
+- **Stylesheet `!important` clean-up (first pass)**: 474 declarations that a later rule with the same selector, media query and property already overrode were removed (3,942 → 3,476 `!important`). The winning value for every selector, media query and property is identical before and after, and likely browser fallbacks (`dvh`, `calc()`, `color-mix()` and similar) were kept. Layered rules were left alone.
+
+### Removed
+- **Pull to refresh in a group's Last.fm stats window**: pulling down at the top no longer triggers a refresh there. The Last.fm home window keeps it.
+- An 830 KB leftover backup file from the repo.
+
+### Good to know
+- New fields (full release details, more scrobbles, Added / Updated dates) only exist in snapshots created or refreshed after this update. Open the Share popup and tap **Update Link** on each existing snapshot link; the URL stays the same.
+
+# Kpop Stan Vault v6.0.3-261002
+
+V6.0.3 fixes group tier history (issue #74) the "updated" toast missing on other devices, shows how fresh your Last.fm data is, adds a backup reminder, adds app-icon shortcuts, and gives deletes a proper 10-second Undo. Also adds a share target so you can send Apple Music and YouTube links straight into the vault, and remembers your Home sort  and filters. This update was supposedly to ship with 6.0
+
+## Tracking Links
+
+- [Issue #74 - Group stats bugs](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/74)
+
+### Added
+- **Share Apple Music / YouTube links into the vault** — on a phone with Stan Vault installed, use Share on a link and pick Stan Vault. Choose a group: an **Apple Music** link opens that group's discography import with the link filled in (tap Auto Extract), and a **YouTube** link lets you pick a release and saves it as that release's **▶ MV** link, shown in the release details. Other links are not attached. After updating, remove and re-add the app to your home screen so the phone picks up the new share option.
+- **Home sort and filters are remembered** — your sort (including Most / Least Scrobbled), status tab, tier, agency, type and search scope are kept between visits on this device. The search text itself is not saved. If a remembered filter would show nothing, Home falls back to All.
+- **Last.fm freshness label and pull-to-refresh** — the Last.fm Listening card on group and soloist pages, the group Last.fm Statistics window and the Home Listening Activity window now say "Updated 5 min ago". The label turns amber after 10 minutes. On a phone, pull down from the top of either Last.fm window to refresh. Coming back to the app after 10+ minutes also refreshes Last.fm quietly in the background, instead of only once per session.
+- **Backup reminder** — if 7 days pass with no backup file and no cloud sync, a gentle "Time for a backup" toast appears when you open the app (tap it to download a backup). It shows at most once every 3 days and never for an empty vault. New users are counted from their first visit, so there is no nagging on day one.
+- **App-icon shortcuts** — long-press (or right-click) the installed Stan Vault icon for **Add group**, **Notifications** and **Wrapped**.
+- **Undo for deletes** — deleting a group or member now shows an **Undo** toast for 10 seconds (was about 6). Anything deleted can still be restored later from **Vault Tools → Recently deleted**, which keeps up to 30 items for 14 days (was 16). Restoring is safe with Cloud Sync: the restored item is not removed again by another device.
+
+### Changed
+- **Cloud sync counts as a backup** — a successful cloud sync now updates **Settings → Diagnostics → Last backup** (shown as "Cloud sync"), because your vault is then safe in the cloud. Downloads and linked JSON saves count as before.
+- **"Soft Delete Bin" is now "Recently deleted"** in Vault Tools and in the delete messages.
+
+### Fixed
+- **Group tier slots not recording the tier properly (#74)** — changing the Main / Sub / Casual Ult slots used to redraw the whole group tier line from today's slots, so past tiers were rewritten and nothing was actually saved. Group tier changes are now recorded when they happen, the same way member tier changes are, and Group Stats draws its tier line from those records. Tiers from before this update are not known, so a group's line starts flat at its tier before the first recorded change.
+- **"Stan Vault is updated to ..." toast missing on other devices** — a device that opened Stan Vault with groups or soloists already in it, but had never recorded a version, silently skipped the toast. It now shows once. A brand-new visitor with an empty vault still sees no toast.
+
+
+# Kpop Stan Vault v6.0.2-261002
+
+V6.0.2 is a small fix release for scrolling on phones.
+
+## Tracking Links
+
+- [Issue #73 - Lastfm widget on group entry lag on mobile](https://github.com/Jhuztyyy/kpopstanvaultmain/issues/73)
+
+### Fixed
+- **Last.fm widget lagging when scrolling on mobile** — scrolling past the Last.fm Listening card on a group or soloist page no longer stutters. The card no longer jumps in height while you scroll, and swiping up or down over its small trend graph now scrolls the page instead of getting stuck. Dragging sideways on the graph still shows the values.
+
+
+# Kpop Stan Vault v6.0.1-261002
+
+V6.0.1 fixes adds a new features and fixes that are supposedly ship with v6.0 with bunch of fixes and changes
+### Added
+- **Backup reminder** — Settings → Diagnostics has a new **Last backup** tile ("Today", "3 days ago" or "Never"). It turns to the warning style after 7 days without a backup. Downloading a backup, saving the linked JSON, creating a new JSON database, or the auto-write to your linked JSON file all count. Cloud sync does not.
+- **Backup version check** — every backup now records the app version. Restoring a backup from a **newer** version shows a warning, and so does linking a JSON file from a newer version. Older backups restore as before.
+- **Update available toast** — when a new version is ready, a toast says "Tap to update". Tapping it switches to the new version and reloads. The app re-checks when you return to the tab and once an hour.
+- **What's new window** — after an update, a toast says "Stan Vault is updated to vX.X.X-YYMMDD" with a link to the changelog. It shows once per version. You can also open it from Settings → About → **What's new**.
+
+### Changed
+- **Rounded corners** — corners now share four sizes across the app, so some moved by 1–4px.
+- **Reduced motion** — the app now respects your device's reduced-motion setting.
+- **Automatic cache reset** — the offline cache follows the app version, so updates no longer need a manual bump.
+- **Last.fm naming cleanup** — internal rename of leftover "spotify" names. Nothing changes for you and no saved data is affected.
+- **Code cleanup** — the home header and group detail screen moved into their own files for faster experience.
+
+### Fixed
+- **Last.fm Refresh button** — it no longer grows while loading.
+- **Snapshot showing "Manual Bias System"** — groups on Affinity Assist now show the right system. Press **Update Link** once on affected groups to refresh their snapshots.
+
+
 # Kpop Stan Vault V6.0-261001
 
 V6.0 fixes a mix-up between real names and stage names that was breaking AI mode, brings full Last.fm stats to Share and Snapshot links, and cleans up several visual bugs on those shared pages.
