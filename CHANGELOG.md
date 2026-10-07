@@ -2,6 +2,75 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
+# Kpop Stan Vault v6.8.0-261008
+ 
+V6.8.0 gives the Member Statistics window a little more room for the History tab, and brings Bias history to public Snapshots. The History tab also keeps its "Viewing" bar pinned to the top while you scroll and scrub. It also adds a History Trend pill and a nicer trend graph for Last.fm, a link detector that suggests the group when you share or paste an Apple Music or YouTube link, album names on Last.fm top tracks, clearer dates and release details in Notifications, Excel and CSV exports, a small vibration on Android when you save a rating or tier, an error log you can copy when something goes wrong, and group pages that pick up their group's color.
+ 
+### Added
+- **History Trend pill in Last.fm Statistics**: the Last.fm window (and the same window on public Snapshots) now shows **History Trend: Rising / Stable / Dropping** next to the connected badge, just like Member Statistics. It reads your saved Last.fm samples, one per day, with the same rules, and hovering it shows the points and change behind it.
+- **Group auto-detect for shared and pasted links**: when you share or paste an **Apple Music** or **YouTube** link (the phone share sheet, or Vault Tools, Attach a link), the vault looks the link up and suggests the group. Apple Music uses the artist on the link; YouTube uses the video title and channel. You always confirm: tap **Yes** to use it, **Choose another** to pick a group yourself. If two groups fit (for example a collab), you get a short "Which one is it?" list instead.
+- **Apple Music links now extract right away**: once the group is confirmed (or picked), **Auto Extract** runs by itself and adds the release to that group's Discography, so there is no second tap.
+- **MV link auto-detect for YouTube**: after the group is confirmed, the vault also suggests the release the video belongs to (matching the title track or release name in the video title) and offers **Yes, save MV link**. If it can't tell, you pick the release as before.
+- **Bias history on public Snapshots**: open a member on a shared Snapshot and the same **History** tab you see in your own vault is there, with the same look. It only shows when the member has recorded changes, and only when the Snapshot was shared with stats included. Snapshots shared before this update won't show #rank changes until you refresh the link.
+- **Excel and CSV export**: in Cloud Sync, next to **Download Backup**, there is now **Export Excel (.xlsx)** and **Export CSV**. The Excel file has a **Members** sheet (one row per member with group details, tier, affinity and rank) and a **Groups** sheet, with sized columns, a colored header row, filters and a frozen top row, so nothing shows up as "#####". The CSV is there for other spreadsheet apps: dates are written so Excel no longer shows "########", and columns with nothing in them are left out. Both are extra safety copies, not replacements for the normal backup, because they can't be restored from.
+- **Vibration feedback (Android)**: a short buzz when you save a rating, a longer double buzz when a tier changes, and a soft buzz when you tap **Undo**. It does nothing on iPhone and desktop, and it stays off if your phone is set to reduce motion.
+- **Error log**: **Settings, Diagnostics** now has an **Error log** card. If the app hits a problem behind the scenes it is noted there, on your device only. Tap **Copy log** and send it with your bug report. Nothing is sent anywhere automatically.
+- **Group colors on group pages**: highlights, text selection, sliders, focus outlines and scrollbars on a group's page now follow that group's color.
+- **Album name on Last.fm top tracks**: the Top Tracks rows in the Listening Activity window, in a group's Last.fm Statistics window, and on public Snapshots now show the album each track is from. Last.fm's top-tracks list does not include albums, so it is looked up once per track from Last.fm and remembered; the line stays hidden when Last.fm has no album for that track.
+- **Clearer Notifications dates**: **Today** and **Tomorrow** now show their date too (for example "Tomorrow · Thu, Oct 8"), and the live countdown moved from every card onto its date header on the right, so each day shows it once.
+- **Release anniversaries now have details**: a release anniversary card shows which anniversary it is, the release name, the years, and the original release date (for example "Drama turns 3 years · released Oct 7, 2023"). If several releases share the date it shows the first plus how many more.
+
+### Changed
+- **Last.fm Statistics chart uses the same line style**: the chart in the Last.fm Statistics window (and on public Snapshots) now draws the same smooth, glowing line as the group card, with the soft fill, a fade along the line and a pulsing "now" dot. The line passes through your real saved samples and never makes up values in between.
+- **Better chart tooltip**: hovering or touching the Last.fm charts now snaps to the nearest real sample and shows its date and time, the percentage in large text, a **Latest**, **Peak** or **Low** tag when it applies, and how much it changed versus the previous sample (and versus the start of the window). It stays inside the chart instead of covering the line.
+- **Last.fm widget shows 1M**: the Trend History graph on a group's Last.fm Listening card now shows the last month (marked **1M**) instead of squeezing the whole history into one line, so recent movement is easy to see. If there are fewer than two samples in the last month it shows everything.
+- **Nicer Last.fm Trend History graph**: the small graph on a group's Last.fm Listening card has a smooth curve (it never invents peaks that did not happen), a soft glow and fade on the line, labelled top, middle and bottom values, dates at the start, middle and end, a green peak dot and a pulsing "now" dot. Touch and drag along it to read any sample. A flat history reads as "steady" instead of a dramatic wiggle. Public Snapshots use the same graph.
+- **A little more room in Member Statistics**: the window is slightly wider and taller so the History tab fits comfortably. Text sizes and the look are unchanged.
+- **Pinned "Viewing" bar in History**: the date, tier and affinity (or rank) you are looking at stay pinned at the top while you scrub the chart or scroll the list, and the "Changed on this date" details have their own card.
+
+### Fixed
+- **Recent scrobbles missed your newest plays**: once the deeper scrobble history had loaded, the Recent lists (Home Listening Activity, a group's Last.fm Statistics, the Recent Scrobbles preview on the group card, and the list saved into a Snapshot) stopped using the fresh feed, so tracks you played afterwards did not appear until you reopened the window. The two feeds are now merged, newest first, with duplicates removed.
+- **Refresh and Load More no longer lose your place**: refreshing used to throw away the older scrobbles you had already loaded and reset Load More. New scrobbles now go on top and the older ones stay. Refresh also updates the Recent list from any tab of the Last.fm Statistics window, not only the Recent tab.
+- **"Now playing" no longer sticks**: only the freshest feed can show a Now Playing row, so a track that finished no longer stays marked as playing.
+- **Recent updates by itself**: while a Recent list is open and the app is visible, it checks for new scrobbles about once a minute.
+- **Snapshots get a fuller, fresher Recent list**: updating a Snapshot link now saves up to 100 recent scrobbles for the group (it was 60), taken from the newest feed. A Snapshot is a saved copy, so it shows what was saved when you updated the link; press Update Link to refresh it.
+
+### Good to know
+- Your data format is unchanged, so older backups and other devices keep working.
+
+
+# Kpop Stan Vault v6.6.0-261007
+ 
+V6.6 adds a scrubbable Bias history for every member, an Undo for rating and tier edits, a milestone engine (Day 100 / 500 / 1,000 since debut or since you started stanning, plus release anniversaries) with toasts and push, a search box in Settings, smarter photo uploads that warn you about duplicates, and safer backups. Home and your scrobble history now stay smooth even with a big vault, and the heavier windows only load when you open them. It also fixes right-click menus closing while you scroll them and the "This app cannot be installed" message in Chrome.
+ 
+### Added
+- **Bias history**: open any member's profile and tap **Bias history**. A slider scrubs back through time and shows the member's tier and affinity (or #rank in Manual Bias groups) on that date, with a chart of tier-coloured bands, previous / next buttons that jump between days with changes, a **Changed on this date** list, and a full list of changes you can tap to jump to. It uses the history the app already keeps, so nothing new is stored. It is hidden until a member has at least one recorded change, and is not shown on public Snapshots.
+- **Undo for rating and tier edits**: saving a group's rating, a member's tier or affinity (from Group info, Edit Members, or the single-member editor) now shows the same 10-second **Undo** toast as deleting. Undo only reverts values that are still exactly as that save left them, so it never overwrites a newer change. The history points written by the edit are rolled back too.
+- **Milestones**: new calendar and notification events for **Day 100 / 500 / 1,000 / 1,500 / 2,000 / 2,500 / 3,000 / 3,500 / 4,000 / 4,500 / 5,000 / 6,000 / 7,000 / 8,000 / 9,000 / 10,000** since a group's debut, the same day counts since you started stanning it, and the **1st, 2nd, 3rd, 5th, 10th, 15th, 20th and 25th anniversary** of any release in its discography. Each one gets a toast on the day, and a push notification when push is on. Several on the same day are grouped into one. They appear under the **Stan** tab in Calendar and under a new **Milestones** chip on the notification board. Yearly stan anniversaries (including "1 year") already existed and are unchanged. Disbanded and unstanned groups don't get milestones.
+- **Settings search**: a **Search settings** box under the Settings header. Type a word like "backup", "push" or "gemini", pick a result, and Settings jumps to the right tab, scrolls to the card and highlights it. Esc or the X clears it.
+- **Duplicate-photo check**: after you pick a photo, the vault compares it with every photo you already have, even if it is a different size or file type. If it looks like the same picture, the photo editor shows a **Possible duplicate** note naming where it is used, and member uploads show a toast. It only informs: you can still save, since one group photo on several members is sometimes intentional.
+- **Backup format version**: every backup file (download, linked JSON, copied data) now includes a format version.
+- **Automatic backup upgrades**: when you restore or load a backup, older backups (including very old ones that were just a list of groups) are upgraded step by step to the current format first. If the confirm dialog says "Backup format v1 will be upgraded to v4 on import", that is this. A backup from a newer, unknown format shows a warning instead of being guessed at.
+
+### Changed
+- **Smaller photos on upload**: new photos are resized and compressed to a size limit (about 150 KB for member photos, 110 KB for logos, 360 KB for covers). Quality is lowered only as far as needed. Smaller photos mean less cloud storage, faster backups and sync, and a faster Home. Saving also removes hidden camera data (such as location) from the photo. Photos you already saved are not changed.
+- **Home only draws what you can see**: with more than 30 groups, Home keeps just the cards near the screen and fills the rest with empty space, so scrolling stays smooth with a big vault. The **Show more** button is gone; just scroll. Card looks, density modes and returning to your scroll position are unchanged.
+- **Scrobble history only draws what you can see**: the Home Last.fm Recent list and a group's Recent Scrobbles tab do the same once they pass 60 rows.
+- **Windows load when opened**: Settings, Vault Stats, Stan Statistics, Wrapped, Cloud Sync, Recent Changes, the photo editor, the sync conflict screen, Tutorial and What's new are not loaded until you open them, so the app starts faster. Open and close animations are unchanged.
+- **Charts load on demand**: the chart drawing is no longer part of the first load. Statistics windows still have their charts ready when they open; the few charts on the main page appear after a brief placeholder the first time.
+- **Protection against request floods**: Last.fm and push features now answer "Too many requests" with a retry time if one device sends far more requests than the app ever does. It is a safety net, not a hard cap.
+
+### Fixed
+- **Right-click menus closed while scrolling**: when a context menu was tall enough to scroll, scrolling inside it closed it. Scrolling the menu now works; scrolling the page behind it still closes it.
+- **Chrome said "This app cannot be installed"**: the app's install information was incomplete (no Android adaptive icon, no long-press shortcuts, no share option, wrong theme color) and was listed twice. It is restored in full and listed once, and a protected deployment can no longer block it.
+
+### Removed
+- **Unused Spotify features**: leftover Spotify code that nothing used is gone. The Spotify artist details used by AI profile fill are untouched.
+
+### Good to know
+- Photos you already saved are not recompressed. Only new uploads use the size limit.
+- Backups kept in the cloud are not versioned yet; only backup files are.
+
 # Kpop Stan Vault v6.4-261004
 
 V6.4 brings the public Snapshot page in line with the main group page (same info chips, Stanned For / Since Debut cards, Last.fm window and Discography 2.0), gives every group one stable, readable share link per account, shows when Cloud last synced and what a sync conflict is about, and adds a quiet review queue for old affinity ratings, an MV link on every release that works in any browser, proper Android app icons, and a screen-reader pass over the buttons.
