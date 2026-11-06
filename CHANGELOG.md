@@ -2,6 +2,116 @@
 
 All notable Kpop Stan Vault changes are tracked here. The repository code remains private; issue and release links are included for project tracking.
 
+# Kpop Stan Vault v8.0.0-261106
+
+V8.0.0 adds Stan Journey, a calendar on every group, and a calmer notification stack, and makes context menus fully block the page behind them.
+
+## Changes
+
+- **Clearer Stan Journey timeline**: uses the familiar Group and Member Statistics graph, with stan counts, Journey’s purple accent and a compact tooltip showing the month, new and ended stans, and the change from the previous month. Choose 1M, 3M, 6M, 1Y, 3Y or ALL, then hover, tap or use the arrow keys to inspect a month. A new Latest stan summary shows your most recently started group and opens its entry. Journey also uses Stan Vault’s standard fonts throughout.
+- **Listening inside Discography 2.0**: one track list now shows song lengths, your Last.fm scrobbles and the last played date for each song and album when available in loaded history. Every release card also shows its all-time album scrobbles when a matching count is available. Album totals come from Last.fm’s album record, so plays on other releases are not added to them. Trailing EP and Single labels are matched to Last.fm’s plain album names while different editions remain separate.
+- **Every saved-artist scrobble date**: Recent has a searchable listening-date selector and full dates and times in Manila time. **Gather all dates** reads your available Last.fm history and keeps only artists saved in your vault, including their aliases. Stop and resume without losing gathered dates. Album counts, song counts and gathered listening dates are included in Cloud Sync, linked JSON files and downloaded backups, with each Last.fm account kept separate. Later updates check new dates without gathering the whole history again.
+- **Filter your listening dates**: choose a day from the calendar, browse a month, use Today or the last 7 or 30 days, or set your own start and end dates. Previous and next buttons skip between days with saved listens. The filter stays visible while you scroll, shows how many scrobbles match, and works alongside search. Dates use Manila time, and Clear brings back all loaded dates.
+- **Interactive activity charts**: in Stan Journey, hover, tap or focus an hour or day to see exact play and edit counts. Click to keep a selection, or use the arrow keys to move between bars.
+- **Calendar beside Delete**: open the group’s birthdays and release calendar directly from its detail header.
+- **Your own group schedules**: add and edit broadcasts, concerts, fan meetings and other events with a date, optional time and notes. They appear on the group calendar and its Schedule tab, survive reloads and use Cloud Sync when connected. Birthday rows open the member’s information, and release rows open the corresponding Discography detail.
+- **Stan Journey**: a new window in the Home toolbar with three tabs. **Activity** scores how active you are from your listening (hours, plays, and the time of day you listen) and your edits, with a 14-day strip and your current streak. **Timeline** shows the stans you started each year and a month-by-month line of how many stans you have. **For you** suggests what to do next from your own vault: favorites you have not played lately, ratings that have gone stale, day-count milestones and anniversaries coming up, comebacks, planned stans and incomplete entries.
+- **Calendar on every group**: each group card has a calendar button (also in its right-click menu) showing that group's member birthdays, discography and debut day on a month grid, with a full birthday list and a release list.
+
+## Improved
+
+- **Better small-screen layouts**: group navigation stays centered, action buttons have room to fit, and Recent scrobbles place dates below the song details so long timestamps do not squeeze the title. Date controls have larger touch targets while keeping the existing glass and animation effects.
+- **Less work on phones and desktops**: short listening previews read just the songs they need instead of sorting an artist’s entire saved history. Timeline pointer updates run at most once per display frame, and its labels stay readable as the chart resizes.
+- **One scan for releases and listening**: every Scan Discography action checks your connected Last.fm album and song counts after updating the catalog, and gathers saved-artist listening dates for Recent. Expand the scan details to see each release, returned counts and why a match needs another check. Large tracklists are checked in smaller batches, repeated songs share checks, and Retry incomplete keeps finished counts without rescanning the catalog.
+- **Roomier Last.fm statistics**: the main vault and shared snapshots have wider, scrollable tabs on smaller screens, with readable labels and larger touch targets. Selecting a tab brings it into view; keyboard navigation works too.
+- **Faster large-vault browsing**: unchanged group filters reuse their results, and long top-song and album lists load only the rows near the screen. Gathered dates store repeated song details once to keep backups and syncing lighter.
+- **Lighter large vaults**: listening activity, Stan Journey and discography search do less repeated work when you have many saved groups and releases. Missing album artwork loads as you approach it, and recent listening checks are reused to reduce waiting and repeated requests.
+- **Faster browsing through long listening histories**: choosing another date avoids rereading the whole history, long scrobble lists show only the rows near the screen, and reopening Recent avoids loading the same saved archive again during your visit.
+- **Consistent popup styling**: the group calendar and Stan Journey use Stan Vault’s existing adapted modal surfaces and sliding tabs. Existing animation timings and transparency effects are preserved.
+- **Calmer notifications**: several notifications at once now stack as a compact deck, newest in front, instead of a tall column covering the screen. Hover, focus or tap the notification chip to spread them out; countdowns pause while spread out. Notifications slide smoothly when others arrive or leave, and **Clear all** dismisses the stack.
+
+## Fixed
+
+- **Mobile notification width**: single notifications, stacked messages and scan progress fit the phone’s width with even side margins and room for screen cutouts.
+- **Clicking through context menus**: while a context menu is open, the page behind it can no longer be clicked. Closing it by clicking outside no longer lets the same click or tap reach a card underneath, and clicks inside the menu no longer open the card it came from.
+
+# Kpop Stan Vault v7.5.1-261025
+
+V7.5.1 makes subscribed push reminders more resilient, makes Gemini key checks clearer and more reliable, and refines listening statistics and everyday icons.
+
+## Changes
+
+- **First recorded listens**: the Scrobbles tab now shows your earliest saved listening total and its date under **First recorded**, replacing the lowest-total card. This appears in both your main vault and shared snapshots.
+- **More consistent icons**: settings, filters, editors, empty lists, sharing controls and statistics use matching outline icons in place of decorative emoji. Country flags, music symbols and the familiar bias-tier colors remain.
+
+## Improved
+
+- **Push reminders stay connected**: already-subscribed devices check their connection when you return, come back online or renew your sign-in. Missing or expired subscriptions can reconnect without asking you to opt in again. Your own paused or removed-device choices are respected.
+- **One Gemini key check**: verification checks your key directly with Google without waiting for an AI-generated reply. Temporary connection or service problems receive a short automatic retry and no longer label a valid key as failed.
+
+## Fixed
+
+- **Push switch appearing off**: a temporary connection or sign-in error no longer replaces your last confirmed notification choice with an off state.
+- **Repeated key-verification taps**: repeated taps share one check, editing a key cancels the previous check, and a result for an old key cannot overwrite the new one. Successful verification remains visible until the key changes.
+
+# Kpop Stan Vault V7.5.0-261022
+
+V7.5.0 brings back your complete Last.fm listening timeline, keeps public snapshots in step with it, and makes Stan Vault lighter to open while keeping its animations and transparent look.
+
+## Changes
+
+- **Recover your whole Last.fm history**: Recover missing history now starts at your earliest available Last.fm scrobble, including listening from before Stan Vault added Last.fm. It rebuilds missing days through yesterday and keeps days you already saved.
+- **Complete history on public snapshots**: shared Last.fm statistics and scrobble graphs keep every saved date instead of cutting off older listening after a fixed number of samples. Larger full-vault snapshots keep their Last.fm timeline too.
+- **Older listening keeps its daily record**: recovered days remain available even after a year, so you can revisit the whole timeline.
+
+## Improved
+
+- **Quicker opening with Cloud Sync**: returning users can open this account's saved vault while the latest cloud changes are checked in the background. Independent checks run together, and unchanged groups take less work to check again.
+- **Lighter first load**: large editors, discography, comparison and vault tools load when needed. Background preparation waits until your vault is ready instead of competing with startup.
+- **Faster photo-heavy vaults**: photos begin loading as they approach the screen, small avatars use sharp thumbnail copies when suitable, and opening Home no longer reads every cached photo into memory. Unused thumbnail copies are released as you browse; your original photos and crops stay intact.
+- **Smoother large lists**: Home starts with fewer offscreen cards, and scrolling reuses measured row sizes instead of measuring the whole visible grid on every movement.
+- **More responsive history recovery**: reads your listening in pages instead of asking for every day separately, shows progress across the complete record, and lets the page respond while rebuilding a long timeline. Cancelling or an incomplete read leaves your saved history untouched.
+- **Same look and motion**: existing animations, timing, colors, blur and transparency are preserved.
+
+## Fixed
+
+- **Album covers beside long titles**: covers stay at the top beside a title that wraps onto two lines, including on public snapshots.
+- **Deleted entries returning after reopening**: a newer save stays newer even when you remove your most recently edited group or leave the vault empty. Closing or refreshing also saves an empty vault.
+- **Snapshots missing recovered listening**: automatic snapshot updates now notice listening-history changes even when no group profile was edited. Existing links receive the complete saved timeline on their next update.
+
+# Kpop Stan Vault v7.2.0-261020
+ 
+V7.2.0 gives the group photo editor a fresh look, adds a proper date picker, makes calendar search show its results right on the calendar, fills the Stan tab with your whole stan story and makes popups easier to read and smoother on phones.
+
+## Tracking Links
+
+
+### Added
+- **New date picker**: every date field (debut, stan date, planned date, disband and unstan dates, birthdays, leave and hiatus dates) now opens a calendar that matches Stan Vault instead of the plain browser one. Pick a month or year quickly, jump to Today, clear the date, or just type it in. It works with the keyboard and turns into a bottom sheet on phones.
+- **Search results on the calendar**: type in the calendar search and press Enter to see every match on the calendar itself. A strip of months with results lets you jump between them, the arrows step to the next or previous month with results, and Clear brings back the normal view.
+- **Notification preferences**: a new **Preferences** button in Notifications opens its own window where you choose which tab Notifications opens on (Last used, Today, Tomorrow, 7 Days or 30 Days), which category is selected and whether it shows unread only. Reset and Restore defaults use your choices.
+- **All your stans in the shared Rank tab**: a shared group link now shows where that group stands among every group in your vault, for example #3 of 57, instead of only itself. Update an existing share link once to include it.
+- **Discography on the Stan tab**: every release day of your groups now shows on the Stan tab and comes back each year as a release anniversary, with several releases on one day shown together.
+- **Debut days on the Stan tab**: debut days and debut anniversaries now appear next to your stan dates, with their own shape on the calendar.
+
+### Changed
+- **Photo editor rework**: the Edit Group Logo window is redesigned with a larger preview showing exactly how the photo will look in the app, easy position buttons, zoom controls and quick zoom choices, and a simpler Upload or Image link switch.
+- **Stan tab gathers everything**: the Stan tab now has All, Stan dates, Milestones, Debut and Discography views, showing stan dates, planned days, day-count milestones, debuts and releases in one place. Events no longer show in years before they could have happened.
+- **Clearer tab labels on phones**: tabs inside popups now have bigger, easier to read labels with the icon above the text.
+- **Same fonts everywhere**: the photo editor, date picker and Cloud Sync window now use the same fonts as the rest of Stan Vault, so titles, labels and buttons look consistent.
+- **Planned to Stan icon**: the little emoji calendar on the Planned to Stan tile is replaced with a clean icon.
+- **Faster and lighter**: popups use less drawing work on phones, the looping glow and pulse animations behind an open popup now pause on every screen size and resume when it closes, and the Cloud Sync window and calendar do less work behind the scenes.
+
+### Fixed
+- **Recent Changes shows other devices**: when another device pushes changes, this device now adds them to Recent Changes right away, marked as coming from another device and with what changed (for example the affinity or a member edited), instead of waiting for that device's own log. Recent Changes also shows when it was last fetched and has a new Other devices filter, and Cloud Sync's Last fetched has a See what changed link.
+- **Preferences window on top**: the Notifications Preferences window now opens above Notifications instead of behind it.
+- **Home board remembers your choice**: the Smart Upcoming Board keeps the range and category you picked after you refresh the page.
+- **Right-click and long-press menus**: while a menu is open, the page behind it can no longer be clicked by accident. The first click or tap outside only closes the menu. The page behind no longer turns darker while a menu is open, and a menu no longer closes itself when the press that opened it is released.
+- **Hover tips above Quick Peek**: the little hover tip on a group card (for example "Stanned since November") is no longer hidden behind the Quick Peek card of the group next to it. The tip now always shows on top.
+- **Shared Stats match the app**: the Stats window on a shared link now reads history the same way the app does, so the graph, tier colors and numbers match.
+- **Laggy Cloud Sync window on phones**: opening and switching tabs in Cloud Sync is now smooth, because the page behind it is paused while it is open and its heavy effects are lighter on phones.
+
+
 # Kpop Stan Vault v7.1.1-261016
  
 V7.1.1 fixes Wrapped so finished months show your scrobbles after Recover history, makes the Cloud Sync window smoother, makes Last fetched and Last synced honest, adds your settings to JSON backups and makes Free up photo space really delete.
