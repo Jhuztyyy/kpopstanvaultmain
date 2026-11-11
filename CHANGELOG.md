@@ -12,6 +12,7 @@ All notable Kpop Stan Vault changes are tracked here. The repository code remain
 
 ## Fixed
 
+- **Update notices and What's New**: the updated-version notice waits until your vault finishes loading, and unread release notes open automatically once the screen is free. Missed notices from an earlier startup can recover without repeating after you read the notes.
 - **Missing older scrobbles**: older completion records are checked again instead of assuming a small saved sample contains your whole history. Incomplete Last.fm replies no longer mark a scan finished.
 - **Misleading empty dates**: the calendar distinguishes history that has not loaded yet from a checked month with no matching listens.
 - **Newest listens first**: selecting a day or date range lists scrobbles from latest to oldest, including history restored from a file.
